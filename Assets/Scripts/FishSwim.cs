@@ -6,7 +6,6 @@ public class FishSwim : MonoBehaviour
 {
     public Transform[] bones;
     public float frequency;
-    public GameObject fish;
     public float maxRotateDegreesPerBone;
     private float startTime;
     private float elapsed;
