@@ -14,6 +14,7 @@ public class FishSwim : MonoBehaviour
     private float lastRotation;
     private float rotationDiff;
 
+    // Start is called before the first frame update
     void Start() {
         startTime = Time.time;
     }
@@ -24,7 +25,6 @@ public class FishSwim : MonoBehaviour
         elapsed = Time.time - startTime;
         lastRotation = targetRotation;
         targetRotation = Mathf.Sin(elapsed * frequency * Mathf.PI) * maxRotateDegreesPerBone;
-        rotationDiff = targetRotation - lastRotation;
     }
 
     void FixedUpdate() {
