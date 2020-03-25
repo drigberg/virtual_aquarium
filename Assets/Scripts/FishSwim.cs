@@ -25,12 +25,11 @@ public class FishSwim : MonoBehaviour
         lastRotation = targetRotation;
         targetRotation = Mathf.Sin(elapsed * frequency * Mathf.PI) * maxRotateDegreesPerBone;
         rotationDiff = targetRotation - lastRotation;
-        Debug.Log("Target: " + targetRotation + ", Diff: " + rotationDiff);
     }
 
     void FixedUpdate() {
         for (int i = 0; i < bones.Length; i++) {
-            bones[i].Rotate(0, 0, rotationDiff);
+            bones[i].localEulerAngles = new Vector3(0, 0, targetRotation);
         }
     }
 }
