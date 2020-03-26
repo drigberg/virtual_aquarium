@@ -50,12 +50,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2c996d38b71e640f291a10a1fda58117,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2c996d38b71e640f291a10a1fda58117,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.77
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2c996d38b71e640f291a10a1fda58117,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2c996d38b71e640f291a10a1fda58117,
         type: 3}
       propertyPath: m_Name
-      value: Philip Prefab
+      value: Philip
       objectReference: {fileID: 0}
     - target: {fileID: 1141736492642354372, guid: 2c996d38b71e640f291a10a1fda58117,
         type: 3}
