@@ -637,6 +637,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6197296107321996695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &649892754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649892755}
+  m_Layer: 0
+  m_Name: School1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649892755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649892754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1402967243}
+  - {fileID: 1036998239}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695862116
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +963,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6197296107321996695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1036998238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036998239}
+  m_Layer: 0
+  m_Name: School1 Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036998239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036998238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.49, y: 0, z: 6.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 649892755}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058832990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1178,7 @@ PrefabInstance:
     - target: {fileID: 803779603021050687, guid: d782bdfa2fb5640b5be8e9c23905d00d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 803779603021050687, guid: d782bdfa2fb5640b5be8e9c23905d00d,
         type: 3}
@@ -1542,7 +1604,7 @@ GameObject:
   - component: {fileID: 1402967243}
   - component: {fileID: 1402967242}
   m_Layer: 0
-  m_Name: SchoolManager
+  m_Name: School1 Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1560,11 +1622,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816651d0fa057471581475b1cc798120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 0}
-  startPosition: {fileID: 0}
-  schoolStartRadius: 0
-  avoidanceThreshold: 0
-  numFish: 0
+  fishPrefab: {fileID: 5757759347238472045, guid: d20129157579640d086b3192075ad46c,
+    type: 3}
+  numFish: 10
+  spawnCenter: {fileID: 1036998239}
+  schoolStartRadius: 5
+  minDistanceBetweenSpawnPoints: 1
+  avoidanceThreshold: 3
 --- !u!4 &1402967243
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,12 +1636,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402967241}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6987305, y: 4.3032227, z: -1.2304688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 649892755}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1464858757 stripped
 Transform:
@@ -1677,36 +1741,6 @@ Transform:
   m_Father: {fileID: 1229243561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: -90, z: 0}
---- !u!1 &1564402481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1564402482}
-  m_Layer: 0
-  m_Name: Samantha
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1564402482
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564402481}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6987305, y: 4.3032227, z: -1.2304688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1606938949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2599440316791076351, guid: d782bdfa2fb5640b5be8e9c23905d00d,
@@ -1926,7 +1960,7 @@ PrefabInstance:
     - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
         type: 3}
