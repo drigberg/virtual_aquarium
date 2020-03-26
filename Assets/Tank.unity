@@ -170,7 +170,6 @@ MonoBehaviour:
   - {fileID: 537222788}
   - {fileID: 1321325633}
   frequency: 5
-  fish: {fileID: 72763162}
   maxRotateDegreesPerBone: 4
 --- !u!1 &119880235
 GameObject:
@@ -341,7 +340,6 @@ MonoBehaviour:
   - {fileID: 1321167481}
   - {fileID: 1606938949}
   frequency: 3
-  fish: {fileID: 262295693}
   maxRotateDegreesPerBone: 3
 --- !u!1 &394562655 stripped
 GameObject:
@@ -1944,6 +1942,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d20129157579640d086b3192075ad46c, type: 3}
