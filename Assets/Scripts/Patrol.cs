@@ -34,6 +34,8 @@ public class Patrol : MonoBehaviour
     void FixedUpdate() {
         Vector3 targetDirection = target.position - transform.position;
         FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
-        FishMovementUtils.TurnToFace(rb, transform, targetDirection);
+        // face midway between current velocity vector and target: like anticipating a turn
+        Vector3 facingDirection = (rb.velocity + targetDirection) / 2;
+        FishMovementUtils.TurnToFace(rb, transform, facingDirection);
     }
 }
