@@ -35,7 +35,8 @@ public class SchoolingFish : MonoBehaviour
         Vector3 cohesionVector = Vector3.zero;
         Vector3 separationVector = Vector3.zero;
 
-        if (IsHeadingForCollision()) {
+        // keep going in the current direction if no target
+        if (settings.targetWeight == 0.0f || IsHeadingForCollision()) {
             Vector3 collisionAvoidDir = ObstacleRays ();
             collisionAvoidanceVector = collisionAvoidDir * settings.speed * settings.avoidCollisionWeight;
         }
@@ -48,10 +49,13 @@ public class SchoolingFish : MonoBehaviour
             separationVector = avgAvoidanceHeading * settings.speed * settings.separateWeight;
         }
 
-        Vector3 sumVector = targetVector + collisionAvoidanceVector + alignmentVector + cohesionVector + separationVector;
+        Vector3 counterCurrentMovement = rb.velocity * -0.3f * settings.speed;
+        // Vector3 counterCurrentMovement = Vector3.zero;
+        Vector3 sumVector = targetVector + collisionAvoidanceVector + alignmentVector + cohesionVector + separationVector + counterCurrentMovement;
         if (sumVector.magnitude > settings.maxSpeed) {
             sumVector = sumVector * (settings.maxSpeed / sumVector.magnitude);
         }
+
 
         FishMovementUtils.MoveTowardsTarget(rb, sumVector, settings.speed);
         FishMovementUtils.TurnToFace(rb, transform, rb.velocity);
