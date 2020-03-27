@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 1058832991}
   - component: {fileID: 1058832995}
   - component: {fileID: 1058832996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Water Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 1188121622}
   - component: {fileID: 1188121621}
   - component: {fileID: 1188121620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Water Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,23 +1775,23 @@ MonoBehaviour:
   numFish: 30
   allFish: []
   spawnCenter: {fileID: 1036998239}
-  schoolStartRadius: 5
+  schoolStartRadius: 3
   minDistanceBetweenSpawnPoints: 1
   target: {fileID: 262295696}
   speed: 300
   maxSpeed: 300
-  perceptionRadius: 5
-  avoidanceRadius: 4
-  alignWeight: 0.2
-  cohesionWeight: 0.5
-  separateWeight: 1
-  targetWeight: 0.2
+  perceptionRadius: 3
+  avoidanceRadius: 3
+  alignWeight: 0
+  cohesionWeight: 0.3
+  separateWeight: 0.1
+  targetWeight: 0.5
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1536
-  boundsRadius: 2
+  boundsRadius: 0.1
   avoidCollisionWeight: 1
-  collisionAvoidDst: 3
+  collisionAvoidDst: 5
 --- !u!4 &2025422804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5827327910072700040, guid: f08608913fe854327a100db504c3f55e,
