@@ -7,9 +7,11 @@ public class SchoolManager : MonoBehaviour
     const int threadGroupSize = 1024;
     public ComputeShader compute;
 
-    [Header ("Number and type of fish")]
+    [Header ("General")]
     public SchoolingFish fishPrefab;
     public int numFish = 5;
+    public SchoolSharedSettings fishSharedSettings;
+    public Transform target;
 
     [HideInInspector]
     public SchoolingFish[] allFish;
@@ -19,51 +21,18 @@ public class SchoolManager : MonoBehaviour
     public float schoolStartRadius = 5.0f;
     public float minDistanceBetweenSpawnPoints = 1.0f;
 
-    [Header ("Fish shared settings: movement")]
-    public Transform target;
-    public float speed = 600;
-    public float maxSpeed = 600;
-    public float perceptionRadius = 2.5f;
-    public float avoidanceRadius = 1;
-    public float alignWeight = 1;
-    public float cohesionWeight = 1;
-    public float separateWeight = 1;
-    public float targetWeight = 1;
-
-    [Header ("Fish shared settings: collisions")]
-    public LayerMask obstacleMask;
-    public float boundsRadius = .27f;
-    public float avoidCollisionWeight = 10;
-    public float collisionAvoidDst = 5;
-
-    private SchoolSharedSettings fishSharedSettings;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        fishSharedSettings = ScriptableObject.CreateInstance<SchoolSharedSettings>();
-        fishSharedSettings.Initialize(
-            target,
-            speed,
-            maxSpeed,
-            perceptionRadius,
-            avoidanceRadius,
-            alignWeight,
-            cohesionWeight,
-            separateWeight,
-            targetWeight,
-            obstacleMask,
-            boundsRadius,
-            avoidCollisionWeight,
-            collisionAvoidDst);
+        Vector3 forward = Random.insideUnitSphere;
+        fishSharedSettings.target = target;
         allFish = new SchoolingFish[numFish];
         for (int i = 0; i < numFish; i++) {
             Vector3 pos = validStartPosition();
             SchoolingFish fish = Instantiate(fishPrefab);
             fish.transform.position = pos;
-            fish.transform.forward = Random.insideUnitSphere;
+            fish.transform.forward = forward;
             fish.Initialize(fishSharedSettings);
             allFish[i] = fish;
         }

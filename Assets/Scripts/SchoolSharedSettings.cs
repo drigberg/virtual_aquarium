@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class SchoolSharedSettings : ScriptableObject {
     // Settings
+    [HideInInspector]
     public Transform target;
     public float speed;
     public float maxSpeed;
+
+    [Header ("Flocking")]
     public float perceptionRadius;
     public float avoidanceRadius;
     public float alignWeight;
     public float cohesionWeight;
     public float separateWeight;
     public float targetWeight;
+    
+    [Header ("Collisions")]
     public LayerMask obstacleMask;
     public float boundsRadius;
     public float avoidCollisionWeight;

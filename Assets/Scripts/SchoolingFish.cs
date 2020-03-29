@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SchoolingFish : MonoBehaviour
 {
+    [HideInInspector]
     public SchoolSharedSettings settings;
     private Rigidbody rb;
 
@@ -49,12 +50,11 @@ public class SchoolingFish : MonoBehaviour
             separationVector = avgAvoidanceHeading * settings.speed * settings.separateWeight;
         }
 
-        Vector3 counterCurrentMovement = rb.velocity * -0.3f * settings.speed; // TODO: add setting for this
-        Vector3 sumVector = targetVector + collisionAvoidanceVector + alignmentVector + cohesionVector + separationVector + counterCurrentMovement;
+
+        Vector3 sumVector = targetVector + collisionAvoidanceVector + alignmentVector + cohesionVector + separationVector;
         if (sumVector.magnitude > settings.maxSpeed) {
             sumVector = sumVector * (settings.maxSpeed / sumVector.magnitude);
         }
-
 
         FishMovementUtils.MoveTowardsTarget(rb, sumVector, settings.speed);
         FishMovementUtils.TurnToFace(rb, transform, rb.velocity);

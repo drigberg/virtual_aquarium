@@ -11,7 +11,11 @@ public class FishMovementUtils : MonoBehaviour
     }
 
     public static void MoveTowardsTarget(Rigidbody rb, Vector3 targetDirection, float speed) {
-        rb.AddForce(targetDirection.normalized * speed * Time.smoothDeltaTime);
+        // apply force counter to current direction proportional to magnitude of turn
+        float differenceFactor = (rb.velocity.normalized - targetDirection.normalized).magnitude;
+        Vector3 counterCurrentMovement = rb.velocity.normalized * differenceFactor * -1;
+        Vector3 forceVector = targetDirection + counterCurrentMovement;
+        rb.AddForce(forceVector.normalized * speed * Time.smoothDeltaTime);
     }
 
     public static void TurnToFace(Rigidbody rb, Transform t, Vector3 targetDirection) {
