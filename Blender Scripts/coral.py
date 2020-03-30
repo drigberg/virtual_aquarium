@@ -27,14 +27,15 @@ class CoralGeneratorSettings:
     resolution: float = 0.02
     render_resolution: float = 0.02
     base_thickness: float = 0.4
-    bumpiness: float = 0.7
-    scatter: float = 0.3
-    decay_prob: float = 0.8
-    decay_factor: float = 0.8
-    new_branch_prob: float = 0.15
-    close_branch_prob: float = 0.05
-    min_distance_to_close_branch: float = 0.0
-    min_z_radians: float = math.pi * 0.1
+    bumpiness: float = 0.4
+    scatter: float = 0.6
+    decay_prob: float = 0.2
+    decay_factor: float = 0.9
+    new_branch_prob: float = 0.4
+    min_branch_width: float = 0.2
+    min_distance_to_close_branch: float = 1.5
+    min_z_radians: float = math.pi * 0.0
+    max_distance_from_base: float = 30.0
 
 
 class CoralGenerator:
@@ -56,16 +57,20 @@ class CoralGenerator:
         """
         Recursively add nodes to branch
         """
-        # taper branch
-        new_scale = scale
-        if random.random() < self.settings.decay_prob:
-            new_scale = scale * self.settings.decay_factor
-
         # either continue or split branch
         num_new_nodes = 1
         if random.random() < self.settings.new_branch_prob:
             num_new_nodes = 2
         for i in range(num_new_nodes):
+            # taper branch
+            new_scale = scale
+            if random.random() < self.settings.decay_prob:
+                new_scale = scale * self.settings.decay_factor
+
+            # if creating new branch, taper further
+            if i != 0:
+                new_scale *= random.uniform(1 - self.settings.scatter, 1)
+
             # add new node
             restrict_xy_angle = i == 0
             new_direction = self.get_new_direction(
@@ -134,14 +139,16 @@ class CoralGenerator:
             scale: float,
             length_from_base: float) -> bool:
         """
-        Closing branches gets more likely as the branch goes on,
-        but it's always possible.
+        Close branch when it's fully decayed
         """
         if length_from_base < self.settings.min_distance_to_close_branch:
             return False
+        elif length_from_base > self.settings.max_distance_from_base:
+            return True
+        elif scale < self.settings.min_branch_width:
+            return True
         else:
-            return random.random() < self.settings.close_branch_prob * (
-                self.settings.base_thickness / scale)
+            return False
 
     def generate(self):
         """
