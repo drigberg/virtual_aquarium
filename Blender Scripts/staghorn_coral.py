@@ -23,7 +23,7 @@ class SphericalCoordinates:
 
 
 @dataclasses.dataclass(frozen=True)
-class CoralGeneratorSettings:
+class StaghornCoralGeneratorSettings:
     resolution: float = 0.02
     render_resolution: float = 0.02
     base_thickness: float = 0.4
@@ -38,8 +38,8 @@ class CoralGeneratorSettings:
     max_distance_from_base: float = 30.0
 
 
-class CoralGenerator:
-    def __init__(self, settings: CoralGeneratorSettings):
+class StaghornCoralGenerator:
+    def __init__(self, settings: StaghornCoralGeneratorSettings):
         self.settings = settings
         self.metaballs = bpy.data.metaballs.new('MetaBall')
         obj = bpy.data.objects.new('MetaBallObj', self.metaballs)
@@ -171,6 +171,6 @@ class CoralGenerator:
 
 
 if __name__ == "__main__":
-    generator_settings = CoralGeneratorSettings()
-    generator = CoralGenerator(generator_settings)
+    generator_settings = StaghornCoralGeneratorSettings()
+    generator = StaghornCoralGenerator(generator_settings)
     generator.generate()
