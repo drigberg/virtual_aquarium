@@ -5628,7 +5628,7 @@ Transform:
   - {fileID: 1188121624}
   - {fileID: 271902156}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &504337635 stripped
 Transform:
@@ -5648,7 +5648,7 @@ GameObject:
   - component: {fileID: 533174184}
   - component: {fileID: 533174183}
   m_Layer: 9
-  m_Name: Ocean Floor
+  m_Name: Middle earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5705,12 +5705,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533174182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: -5, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -157.99515, y: 95.42054, z: -286.2634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1495368614}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &537222788 stripped
 Transform:
@@ -5795,7 +5795,7 @@ Transform:
   - {fileID: 1279973625}
   - {fileID: 695862117}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695862116
 GameObject:
@@ -5865,7 +5865,7 @@ Transform:
   - {fileID: 883341127}
   - {fileID: 831199087}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &804351814 stripped
 Transform:
@@ -6315,7 +6315,7 @@ Transform:
   - {fileID: 1625553062}
   - {fileID: 1726969631}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1038242279 stripped
 Transform:
@@ -6336,7 +6336,6 @@ GameObject:
   - component: {fileID: 1058832992}
   - component: {fileID: 1058832991}
   - component: {fileID: 1058832995}
-  - component: {fileID: 1058832996}
   m_Layer: 10
   m_Name: Water Top
   m_TagString: Untagged
@@ -6352,7 +6351,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058832990}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -6429,18 +6428,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d2f50a8e0bb841a5aaa90ae55db8849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1058832996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058832990}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c33680265f4e4dbe8da0c5539286fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1155605453
@@ -6942,7 +6929,7 @@ Transform:
   m_Children:
   - {fileID: 1483644841}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235196870
 GameObject:
@@ -6991,8 +6978,8 @@ GameObject:
   - component: {fileID: 1271950969}
   - component: {fileID: 1271950968}
   - component: {fileID: 1271950967}
-  m_Layer: 0
-  m_Name: Terrain_(-25.0, -5.0, -30.0)
+  m_Layer: 9
+  m_Name: North terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7049,12 +7036,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271950966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: -5, z: -30}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -157.99515, y: 95.42054, z: -306.2634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1495368614}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274860151
 GameObject:
@@ -7239,7 +7226,7 @@ Transform:
   - {fileID: 578669484}
   - {fileID: 111525793}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1399502033
 PrefabInstance:
@@ -7487,6 +7474,39 @@ Transform:
   m_Father: {fileID: 1229243561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 67.97401, y: -126.51601, z: -40.334003}
+--- !u!1 &1495368613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495368614}
+  m_Layer: 0
+  m_Name: Ocean Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495368614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495368613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 132.99515, y: -100.42054, z: 276.2634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1497404600}
+  - {fileID: 1271950969}
+  - {fileID: 533174185}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497404597
 GameObject:
   m_ObjectHideFlags: 0
@@ -7498,8 +7518,8 @@ GameObject:
   - component: {fileID: 1497404600}
   - component: {fileID: 1497404599}
   - component: {fileID: 1497404598}
-  m_Layer: 0
-  m_Name: Terrain_(-25.0, -5.0, 10.0)
+  m_Layer: 9
+  m_Name: South terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7556,12 +7576,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497404597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: -5, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -157.99515, y: 95.42054, z: -266.2634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1495368614}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1544606597
 PrefabInstance:
