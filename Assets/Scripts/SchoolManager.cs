@@ -73,18 +73,27 @@ public class SchoolManager : MonoBehaviour
                 fishData[i].direction = allFish[i].transform.forward;
             }
 
-            var fishesBuffer = new ComputeBuffer (allFish.Length, FishData.Size);
-            fishesBuffer.SetData (fishData);
+            float viewRadius = fishSharedSettings.perceptionRadius;
+            float avoidRadius = fishSharedSettings.avoidanceRadius;
+            for (int indexA = 0; indexA < numFish; indexA ++) {
+                for (int indexB = 0; indexB < numFish; indexB ++) {
+                    if (indexA != indexB) {
+                        FishData fishB = fishData[indexB];
+                        Vector3 offset = fishB.position - fishData[indexA].position;
+                        float sqrDst = offset.x * offset.x + offset.y * offset.y + offset.z * offset.z;
 
-            compute.SetBuffer (0, "fishes", fishesBuffer);
-            compute.SetInt ("numFish", allFish.Length);
-            compute.SetFloat ("viewRadius", fishSharedSettings.perceptionRadius);
-            compute.SetFloat ("avoidRadius", fishSharedSettings.avoidanceRadius);
+                        if (sqrDst < viewRadius * viewRadius) {
+                            fishData[indexA].numFlockmates += 1;
+                            fishData[indexA].flockHeading += fishB.direction;
+                            fishData[indexA].flockCentre += fishB.position;
 
-            int threadGroups = Mathf.CeilToInt (allFish.Length / (float) threadGroupSize);
-            compute.Dispatch (0, threadGroups, 1, 1);
-
-            fishesBuffer.GetData (fishData);
+                            if (sqrDst < avoidRadius * avoidRadius) {
+                                fishData[indexA].avoidanceHeading -= offset / sqrDst;
+                            }
+                        }
+                    }
+                }
+            }
 
             for (int i = 0; i < allFish.Length; i++) {
                 allFish[i].avgFlockHeading = fishData[i].flockHeading;
@@ -93,8 +102,6 @@ public class SchoolManager : MonoBehaviour
                 allFish[i].numPerceivedFlockmates = fishData[i].numFlockmates;
                 allFish[i].UpdateFish ();
             }
-
-            fishesBuffer.Release ();
         }
     }
 
