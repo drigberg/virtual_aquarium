@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class StingraySwim : MonoBehaviour
 {
+    public BottomFeederPatrol bottomFeeder;
     public Transform[] bones;
     public float frequency;
     public float maxRotateDegreesPerBone;
-    private float startTime;
-    private float elapsed;
+    public float maxForce;
+    private float speedScale;
+    private float localTime = 0.0f;
     private float targetRotation = 0.0f;
-    private float lastRotation;
-    private float rotationDiff;
     private float offset;
 
     // Start is called before the first frame update
     void Start() {
-        startTime = Time.time;
         offset = Random.Range(Mathf.PI * -1, Mathf.PI);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: extend frequency and lessen maxRotation based on speed (no movement when idle)
-        elapsed = Time.time - startTime;
-        lastRotation = targetRotation;
-        targetRotation = Mathf.Sin(elapsed * frequency * Mathf.PI + offset) * maxRotateDegreesPerBone;
+        Debug.Log(bottomFeeder.currentForce.magnitude);
+        speedScale = bottomFeeder.currentForce.magnitude / maxForce;
+        localTime += Time.deltaTime * frequency * speedScale;
+        // float scaledMaxRotation = maxRotateDegreesPerBone * speedScale;
+        targetRotation = Mathf.Sin(localTime + Mathf.PI + offset) * maxRotateDegreesPerBone;
     }
 
     void FixedUpdate() {

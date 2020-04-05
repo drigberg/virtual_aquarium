@@ -11,6 +11,7 @@ public class BottomFeederPatrol : MonoBehaviour
     public float restProbability = 0.5f;
     public float maxRestTimeSeconds = 15.0f;
     public float speed = 5.0f;
+    public Vector3 currentForce;
 
     private Vector3 currentTarget;
     private float restTimer = 0.0f;
@@ -80,7 +81,7 @@ public class BottomFeederPatrol : MonoBehaviour
 
     void MoveTowardsTarget() {
         Vector3 targetDirection = currentTarget - transform.position;
-        FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
+        currentForce = FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
         // face midway between current velocity vector and target: like anticipating a turn
         Vector3 facingDirection = (rb.velocity + targetDirection) / 2;
         FishMovementUtils.TurnToFace(rb, transform, facingDirection);
