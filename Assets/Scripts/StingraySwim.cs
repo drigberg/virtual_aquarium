@@ -23,6 +23,7 @@ public class StingraySwim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO: extend frequency and lessen maxRotation based on speed (no movement when idle)
         elapsed = Time.time - startTime;
         lastRotation = targetRotation;
         targetRotation = Mathf.Sin(elapsed * frequency * Mathf.PI + offset) * maxRotateDegreesPerBone;
