@@ -24,7 +24,7 @@ public class StingraySwim : MonoBehaviour
     {
         speedScale = bottomFeeder.currentForce.magnitude / maxForce;
         localTime += Time.deltaTime * frequency * speedScale;
-        targetRotation = Mathf.Sin(localTime + Mathf.PI + offset) * scaledMaxRotation;
+        targetRotation = Mathf.Sin(localTime + Mathf.PI + offset) * maxRotateDegreesPerBone;
     }
 
     void FixedUpdate() {
