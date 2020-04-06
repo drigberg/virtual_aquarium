@@ -9,6 +9,7 @@ public class BottomFeederPatrol : MonoBehaviour
     public Transform maxXZ;
     public float hoverHeight = 2.0f;
     public float restingHoverHeight = 0.5f;
+    public float hoverMargin = 0.2f;
     public float targetRadius = 3.0f;
     public float restProbability = 0.5f;
     public float minRestTimeSeconds = 5.0f;
@@ -126,8 +127,12 @@ public class BottomFeederPatrol : MonoBehaviour
         // stay close to the terrain along the Y axis
         float distanceToTerrain = GetDistanceToTerrain();
         float hoverError = distanceToTerrain - targetAltitude;
-        float directionError = Mathf.Abs(hoverError) / hoverError;
-        return FishMovementUtils.MoveTowardsTarget(rb, -Vector3.up, speed * directionError * 0.5f);
+        if (Mathf.Abs(hoverError) < hoverMargin) {
+            return Vector3.zero;
+        } else {
+            float signError = Mathf.Abs(hoverError) / hoverError;
+            return FishMovementUtils.MoveTowardsTarget(rb, -Vector3.up, speed * signError * 0.5f);
+        }
     }
 
     void MoveTowardsTarget() {

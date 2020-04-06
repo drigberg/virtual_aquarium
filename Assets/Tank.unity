@@ -7994,6 +7994,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 682508454}
     m_Modifications:
+    - target: {fileID: -3285745878839245211, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -2157620096592746911, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: bones.Array.size
@@ -8089,6 +8094,11 @@ PrefabInstance:
       propertyPath: obstacleMask.m_Bits
       value: 1536
       objectReference: {fileID: 0}
+    - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: restingHoverHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4674622256921045598, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: m_Name
@@ -8122,17 +8132,17 @@ PrefabInstance:
     - target: {fileID: 8540164047209699405, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8471602
+      value: -13.24
       objectReference: {fileID: 0}
     - target: {fileID: 8540164047209699405, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.713647
+      value: -6.03
       objectReference: {fileID: 0}
     - target: {fileID: 8540164047209699405, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.794197
+      value: 21.2
       objectReference: {fileID: 0}
     - target: {fileID: 8540164047209699405, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
@@ -8933,7 +8943,7 @@ PrefabInstance:
     - target: {fileID: 6657711044535298552, guid: f08608913fe854327a100db504c3f55e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2
+      value: -3.76
       objectReference: {fileID: 0}
     - target: {fileID: 6657711044535298552, guid: f08608913fe854327a100db504c3f55e,
         type: 3}
