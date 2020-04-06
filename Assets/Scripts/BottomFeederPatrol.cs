@@ -15,9 +15,17 @@ public class BottomFeederPatrol : MonoBehaviour
     public float maxRestTimeSeconds = 15.0f;
     public float speed = 5.0f;
     public Vector3 currentForce;
-
     private Vector3 currentTarget;
     private float restTimer = 0.0f;
+
+    [Header ("Collisions")]
+    public LayerMask obstacleMask;
+    public float boundsRadius;
+    public float avoidCollisionWeight;
+    public float collisionAvoidDst;
+    private Vector3 collisionAvoidanceVector;
+    private bool isHeadingForCollision;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +52,13 @@ public class BottomFeederPatrol : MonoBehaviour
                 restTimer = GetRestInterval();
                 return;
             }
+        }
+
+        isHeadingForCollision = IsHeadingForCollision();
+
+        if (isHeadingForCollision) {
+            Vector3 collisionAvoidDir = ObstacleRays ();
+            collisionAvoidanceVector = collisionAvoidDir * speed * avoidCollisionWeight;
         }
     }
 
@@ -116,11 +131,36 @@ public class BottomFeederPatrol : MonoBehaviour
     void MoveTowardsTarget() {
         // move towards target along XZ plane
         Vector3 targetDirection = currentTarget - transform.position;
-        currentForce = FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
-        currentForce += AdjustAltitude(hoverHeight);
+        Vector3 sumVector = targetDirection + collisionAvoidanceVector;
+        currentForce = FishMovementUtils.MoveTowardsTarget(rb, sumVector, speed);
+        if (!isHeadingForCollision) {
+            currentForce += AdjustAltitude(hoverHeight);
+        }
 
         // face midway between current velocity vector and target: like anticipating a turn
         Vector3 facingDirection = (rb.velocity + targetDirection) / 2;
         FishMovementUtils.TurnToFace(rb, transform, facingDirection);
+    }
+
+    bool IsHeadingForCollision () {
+        RaycastHit hit;
+        if (Physics.SphereCast (transform.position, boundsRadius, transform.forward, out hit, collisionAvoidDst, obstacleMask)) {
+            return true;
+        } else { }
+        return false;
+    }
+
+    Vector3 ObstacleRays () {
+        Vector3[] rayDirections = BoidHelper.directions;
+
+        for (int i = 0; i < rayDirections.Length; i++) {
+            Vector3 dir = transform.TransformDirection (rayDirections[i]);
+            Ray ray = new Ray (transform.position, dir);
+            if (!Physics.SphereCast (ray, boundsRadius, collisionAvoidDst, obstacleMask)) {
+                return dir;
+            }
+        }
+
+        return transform.forward;
     }
 }

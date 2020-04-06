@@ -8047,7 +8047,7 @@ PrefabInstance:
     - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: targetRadius
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
@@ -8068,6 +8068,26 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: boundsRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: avoidCollisionWeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: collisionAvoidDst
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
+        type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 1536
       objectReference: {fileID: 0}
     - target: {fileID: 4674622256921045598, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
