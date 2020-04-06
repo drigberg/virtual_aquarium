@@ -32,8 +32,10 @@ public class FishMovementUtils : MonoBehaviour
         float angle;
         deltaQuat.ToAngleAxis(out angle, out axis);
 
-        float dampenFactor = 0.8f; // this value requires tuning
-        float adjustFactor = 0.5f; // this value requires tuning
+        // these arbitrary values allow fish to rotate as needed and right themselves
+        // later: should be provided as arguments
+        float dampenFactor = 1.2f;
+        float adjustFactor = 0.3f;
         rb.AddTorque(axis.normalized * angle * adjustFactor - rb.angularVelocity * dampenFactor, ForceMode.Acceleration);
     }
 }
