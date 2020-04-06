@@ -8057,12 +8057,12 @@ PrefabInstance:
     - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: maxRestTimeSeconds
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
       propertyPath: minRestTimeSeconds
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3423473177508083761, guid: 0b4073e899a0341328cbc830d88a79e0,
         type: 3}
