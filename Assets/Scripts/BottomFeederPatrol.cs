@@ -59,6 +59,8 @@ public class BottomFeederPatrol : MonoBehaviour
         if (isHeadingForCollision) {
             Vector3 collisionAvoidDir = ObstacleRays ();
             collisionAvoidanceVector = collisionAvoidDir * speed * avoidCollisionWeight;
+        } else {
+            collisionAvoidanceVector = Vector3.zero;
         }
     }
 
