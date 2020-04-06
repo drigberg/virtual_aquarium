@@ -102,7 +102,7 @@ public class BottomFeederPatrol : MonoBehaviour
             transform.rotation.eulerAngles.x,
             transform.rotation.eulerAngles.y,
             0);
-        FishMovementUtils.Rotate(rb, transform, targetRotation);
+        FishMovementUtils.RotateUpright(rb, transform);
     }
 
     Vector3 AdjustAltitude(float targetAltitude) {

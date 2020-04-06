@@ -24,7 +24,8 @@ public class FishMovementUtils : MonoBehaviour
         rb.AddTorque(Vector3.Cross(t.forward, targetDirection) * 1);
     }
 
-    public static void Rotate(Rigidbody rb, Transform t, Vector3 targetRotation) {
+    public static void RotateUpright(Rigidbody rb, Transform t) {
+        // https://stackoverflow.com/questions/58419942/stabilize-hovercraft-rigidbody-upright-using-torque
         Quaternion deltaQuat = Quaternion.FromToRotation(t.up, Vector3.up);
 
         Vector3 axis;
@@ -32,9 +33,7 @@ public class FishMovementUtils : MonoBehaviour
         deltaQuat.ToAngleAxis(out angle, out axis);
 
         float dampenFactor = 0.8f; // this value requires tuning
-        rb.AddTorque(-rb.angularVelocity * dampenFactor, ForceMode.Acceleration);
-
         float adjustFactor = 0.5f; // this value requires tuning
-        rb.AddTorque(axis.normalized * angle * adjustFactor, ForceMode.Acceleration);
+        rb.AddTorque(axis.normalized * angle * adjustFactor - rb.angularVelocity * dampenFactor, ForceMode.Acceleration);
     }
 }

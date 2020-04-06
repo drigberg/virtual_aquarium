@@ -22,11 +22,9 @@ public class StingraySwim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(bottomFeeder.currentForce.magnitude);
         speedScale = bottomFeeder.currentForce.magnitude / maxForce;
         localTime += Time.deltaTime * frequency * speedScale;
-        // float scaledMaxRotation = maxRotateDegreesPerBone * speedScale;
-        targetRotation = Mathf.Sin(localTime + Mathf.PI + offset) * maxRotateDegreesPerBone;
+        targetRotation = Mathf.Sin(localTime + Mathf.PI + offset) * scaledMaxRotation;
     }
 
     void FixedUpdate() {

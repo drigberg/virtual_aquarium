@@ -58,6 +58,7 @@ public class SchoolingFish : MonoBehaviour
 
         FishMovementUtils.MoveTowardsTarget(rb, sumVector, settings.speed);
         FishMovementUtils.TurnToFace(rb, transform, rb.velocity);
+        FishMovementUtils.RotateUpright(rb, transform);
     }
 
     bool IsHeadingForCollision () {
