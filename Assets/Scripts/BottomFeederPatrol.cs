@@ -31,6 +31,7 @@ public class BottomFeederPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AdjustRotation();
         if (restTimer > 0.0f) {
             IterateRestTimer();
             currentForce = AdjustAltitude(restingHoverHeight);
@@ -94,6 +95,14 @@ public class BottomFeederPatrol : MonoBehaviour
         }
         // assume at least 5 units away
         return 5.0f;
+    }
+
+    void AdjustRotation() {
+        Vector3 targetRotation = new Vector3(
+            transform.rotation.eulerAngles.x,
+            transform.rotation.eulerAngles.y,
+            0);
+        FishMovementUtils.Rotate(rb, transform, targetRotation);
     }
 
     Vector3 AdjustAltitude(float targetAltitude) {

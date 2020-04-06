@@ -23,4 +23,18 @@ public class FishMovementUtils : MonoBehaviour
     public static void TurnToFace(Rigidbody rb, Transform t, Vector3 targetDirection) {
         rb.AddTorque(Vector3.Cross(t.forward, targetDirection) * 1);
     }
+
+    public static void Rotate(Rigidbody rb, Transform t, Vector3 targetRotation) {
+        Quaternion deltaQuat = Quaternion.FromToRotation(t.up, Vector3.up);
+
+        Vector3 axis;
+        float angle;
+        deltaQuat.ToAngleAxis(out angle, out axis);
+
+        float dampenFactor = 0.8f; // this value requires tuning
+        rb.AddTorque(-rb.angularVelocity * dampenFactor, ForceMode.Acceleration);
+
+        float adjustFactor = 0.5f; // this value requires tuning
+        rb.AddTorque(axis.normalized * angle * adjustFactor, ForceMode.Acceleration);
+    }
 }
