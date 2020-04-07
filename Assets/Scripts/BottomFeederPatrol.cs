@@ -14,7 +14,7 @@ public class BottomFeederPatrol : MonoBehaviour
     public float restProbability = 0.5f;
     public float minRestTimeSeconds = 5.0f;
     public float maxRestTimeSeconds = 15.0f;
-    public float speed = 5.0f;
+    public float speed = 500.0f;
     public Vector3 currentForce;
     private Vector3 currentTarget;
     private float restTimer = 0.0f;
@@ -40,7 +40,7 @@ public class BottomFeederPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AdjustRotation();
+        FishMovementUtils.RotateUpright(rb, transform);
         if (restTimer > 0.0f) {
             IterateRestTimer();
             currentForce = AdjustAltitude(restingHoverHeight);
@@ -56,7 +56,6 @@ public class BottomFeederPatrol : MonoBehaviour
         }
 
         isHeadingForCollision = IsHeadingForCollision();
-
         if (isHeadingForCollision) {
             Vector3 collisionAvoidDir = ObstacleRays ();
             collisionAvoidanceVector = collisionAvoidDir * speed * avoidCollisionWeight;
@@ -113,14 +112,6 @@ public class BottomFeederPatrol : MonoBehaviour
         }
         // assume at least 5 units away
         return 5.0f;
-    }
-
-    void AdjustRotation() {
-        Vector3 targetRotation = new Vector3(
-            transform.rotation.eulerAngles.x,
-            transform.rotation.eulerAngles.y,
-            0);
-        FishMovementUtils.RotateUpright(rb, transform);
     }
 
     Vector3 AdjustAltitude(float targetAltitude) {
