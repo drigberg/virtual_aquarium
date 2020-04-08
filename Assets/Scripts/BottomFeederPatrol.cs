@@ -15,17 +15,14 @@ public class BottomFeederPatrol : MonoBehaviour
     public float minRestTimeSeconds = 5.0f;
     public float maxRestTimeSeconds = 15.0f;
     public float speed = 500.0f;
+    [HideInInspector]
     public Vector3 currentForce;
     private Vector3 currentTarget;
     private float restTimer = 0.0f;
 
     [Header ("Collisions")]
     public LayerMask obstacleMask;
-    public float boundsRadius;
-    public float avoidCollisionWeight;
     public float collisionAvoidDst;
-    private Vector3 collisionAvoidanceVector;
-    private bool isHeadingForCollision;
 
 
     // Start is called before the first frame update
@@ -40,10 +37,8 @@ public class BottomFeederPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FishMovementUtils.RotateUpright(rb, transform);
         if (restTimer > 0.0f) {
             IterateRestTimer();
-            currentForce = AdjustAltitude(restingHoverHeight);
             return;
         }
 
@@ -55,18 +50,22 @@ public class BottomFeederPatrol : MonoBehaviour
             }
         }
 
-        isHeadingForCollision = IsHeadingForCollision();
-        if (isHeadingForCollision) {
-            Vector3 collisionAvoidDir = ObstacleRays ();
-            collisionAvoidanceVector = collisionAvoidDir * speed * avoidCollisionWeight;
-        } else {
-            collisionAvoidanceVector = Vector3.zero;
+        if (CollisionInDirection(currentTarget - transform.position)) {
+            for (int i = 0; i < 5; i++) {
+                currentTarget = GetNextTarget();
+                if (!CollisionInDirection(currentTarget - transform.position)) {
+                    break;
+                }
+            }
         }
     }
 
     void FixedUpdate() {
+        FishMovementUtils.RotateUpright(rb, transform);
         if (restTimer <= 0.0f) {
-            MoveTowardsTarget();
+            currentForce = MoveTowardsTarget();
+        } else {
+            currentForce = AdjustAltitude(restingHoverHeight);
         }
     }
 
@@ -126,39 +125,22 @@ public class BottomFeederPatrol : MonoBehaviour
         }
     }
 
-    void MoveTowardsTarget() {
+    Vector3 MoveTowardsTarget() {
         // move towards target along XZ plane
         Vector3 targetDirection = currentTarget - transform.position;
-        Vector3 sumVector = targetDirection + collisionAvoidanceVector;
-        currentForce = FishMovementUtils.MoveTowardsTarget(rb, sumVector, speed);
-        if (!isHeadingForCollision) {
-            currentForce += AdjustAltitude(hoverHeight);
-        }
+        Vector3 force = FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
+        force += AdjustAltitude(hoverHeight);
 
         // face midway between current velocity vector and target: like anticipating a turn
         Vector3 facingDirection = (rb.velocity + targetDirection) / 2;
         FishMovementUtils.TurnToFace(rb, transform, facingDirection);
+        return force;
     }
 
-    bool IsHeadingForCollision () {
-        RaycastHit hit;
-        if (Physics.SphereCast (transform.position, boundsRadius, transform.forward, out hit, collisionAvoidDst, obstacleMask)) {
+    bool CollisionInDirection (Vector3 direction) {
+        if (Physics.Raycast (transform.position, direction, collisionAvoidDst, obstacleMask)) {
             return true;
         } else { }
         return false;
-    }
-
-    Vector3 ObstacleRays () {
-        Vector3[] rayDirections = BoidHelper.directions;
-
-        for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = transform.TransformDirection (rayDirections[i]);
-            Ray ray = new Ray (transform.position, dir);
-            if (!Physics.SphereCast (ray, boundsRadius, collisionAvoidDst, obstacleMask)) {
-                return dir;
-            }
-        }
-
-        return transform.forward;
     }
 }
