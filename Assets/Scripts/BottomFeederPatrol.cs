@@ -17,7 +17,7 @@ public class BottomFeederPatrol : MonoBehaviour
     public float speed = 500.0f;
     [HideInInspector]
     public Vector3 currentForce;
-    private Vector3 currentTarget;
+    private Vector3 target;
     private float restTimer = 0.0f;
 
     [Header ("Collisions")]
@@ -28,7 +28,7 @@ public class BottomFeederPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTarget = GetNextTarget();
+        target = GetNextTarget();
         if (ShouldRest()) {
             restTimer = GetRestInterval();
         }
@@ -42,21 +42,16 @@ public class BottomFeederPatrol : MonoBehaviour
             return;
         }
 
-        if (HaveReachedDestination(currentTarget)) {
-            currentTarget = GetNextTarget();
+        if (HaveReachedDestination(target)) {
+            target = GetNextTarget();
             if (ShouldRest()) {
                 restTimer = GetRestInterval();
                 return;
             }
         }
 
-        if (CollisionInDirection(currentTarget - transform.position)) {
-            for (int i = 0; i < 5; i++) {
-                currentTarget = GetNextTarget();
-                if (!CollisionInDirection(currentTarget - transform.position)) {
-                    break;
-                }
-            }
+        if (CollisionInDirection(target - transform.position)) {
+            target = GetNextTarget();
         }
     }
 
@@ -79,12 +74,12 @@ public class BottomFeederPatrol : MonoBehaviour
     Vector3 GetNextTarget() {
         // try a few times to find a location out of range, then give up
         Vector3 newTarget = new Vector3(0, 0, 0); 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             newTarget = new Vector3(
                 Random.Range(minXZ.position.x, maxXZ.position.x),
                 0,
                 Random.Range(minXZ.position.z, maxXZ.position.z));
-            if (!HaveReachedDestination(newTarget)) {
+            if (!HaveReachedDestination(newTarget) && !CollisionInDirection(newTarget - transform.position)) {
                 return newTarget;
             }
         }
@@ -127,7 +122,7 @@ public class BottomFeederPatrol : MonoBehaviour
 
     Vector3 MoveTowardsTarget() {
         // move towards target along XZ plane
-        Vector3 targetDirection = currentTarget - transform.position;
+        Vector3 targetDirection = target - transform.position;
         Vector3 force = FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
         force += AdjustAltitude(hoverHeight);
 

@@ -25,19 +25,10 @@ public class Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // switch to next target if within range
-        if (HaveReachedDestination(target))
+        // switch to next target if within range or obstacle in the way
+        if (HaveReachedDestination(target) || CollisionInDirection(target - transform.position))
         {
             target = GetNextTarget();
-        }
-
-        if (CollisionInDirection(target - transform.position)) {
-            for (int i = 0; i < 5; i++) {
-                target = GetNextTarget();
-                if (!CollisionInDirection(target - transform.position)) {
-                    break;
-                }
-            }
         }
     }
 
@@ -53,12 +44,12 @@ public class Patrol : MonoBehaviour
     Vector3 GetNextTarget() {
         // try a few times to find a location out of range, then give up
         Vector3 newTarget = new Vector3(0, 0, 0); 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             newTarget = new Vector3(
                 Random.Range(minXYZ.position.x, maxXYZ.position.x),
                 Random.Range(minXYZ.position.y, maxXYZ.position.y),
                 Random.Range(minXYZ.position.z, maxXYZ.position.z));
-            if (!HaveReachedDestination(newTarget)) {
+            if (!HaveReachedDestination(newTarget) && !CollisionInDirection(newTarget - transform.position)) {
                 return newTarget;
             }
         }
