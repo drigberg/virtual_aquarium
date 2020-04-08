@@ -19,7 +19,9 @@ public class DiverMovement : MonoBehaviour {
     private bool sprint;
 
 
-    private float x, y;
+    // Input
+    float x, y, z;
+    bool ascend, descend;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -47,13 +49,15 @@ public class DiverMovement : MonoBehaviour {
     private void MyInput() {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        sprint = Input.GetKey(KeyCode.LeftShift);
+        ascend = Input.GetKey(KeyCode.E);
+        descend = Input.GetKey(KeyCode.Q);
+        sprint = Input.GetKey(KeyCode.Space);
     }
 
     private void Movement() {
         //Find actual velocity relative to where player is looking
         Vector2 mag = FindVelRelativeToLook();
-        float xMag = mag.x, yMag = mag.y;
+        float xMag = mag.x, yMag = mag.y, zMag = rb.velocity.y;
 
         //Set max speed
         float currentMaxSpeed = maxSpeed;
@@ -62,16 +66,23 @@ public class DiverMovement : MonoBehaviour {
             currentMaxSpeed *= sprintMultiplier;
             currentMoveSpeed *= sprintMultiplier;
         }
+        
+        if (ascend) z = 1;
+        if (descend) z = -1;
 
-        //If speed is larger than currentMaxSpeed, cancel out the input so you don't go over max speed
+        //If speed is larger than maxspeed, cancel out the input so you don't go over max speed
         if (x > 0 && xMag > currentMaxSpeed) x = 0;
         if (x < 0 && xMag < -currentMaxSpeed) x = 0;
         if (y > 0 && yMag > currentMaxSpeed) y = 0;
         if (y < 0 && yMag < -currentMaxSpeed) y = 0;
+        if (z > 0 && zMag > currentMaxSpeed) z = 0;
+        if (z < 0 && zMag < -currentMaxSpeed) z = 0;
+        if (!ascend && !descend) z = zMag * -0.1f;
 
         //Apply forces to move player
         rb.AddForce(orientation.transform.forward * y * currentMoveSpeed * Time.deltaTime);
         rb.AddForce(orientation.transform.right * x * currentMoveSpeed * Time.deltaTime);
+        rb.AddForce(orientation.transform.up * z * currentMoveSpeed * Time.deltaTime);
     }
 
     
@@ -90,7 +101,7 @@ public class DiverMovement : MonoBehaviour {
 
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-        orientation.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
     }
 
     /// <summary>

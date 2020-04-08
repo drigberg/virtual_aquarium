@@ -6,6 +6,6 @@ public class MoveCamera : MonoBehaviour {
     public float followDistance;
 
     void Update() {
-        transform.position = player.transform.position - player.transform.forward * followDistance - player.transform.up * 2.0f;
+        transform.position = player.transform.position - player.transform.forward * followDistance + player.transform.up * 2.0f;
     }
 }
