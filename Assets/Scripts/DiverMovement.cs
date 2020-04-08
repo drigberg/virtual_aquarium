@@ -5,33 +5,21 @@ using UnityEngine;
 
 public class DiverMovement : MonoBehaviour {
 
-    //Assingables
     public Transform playerCam;
     public Transform orientation;
-    
-    //Other
-    private Rigidbody rb;
+    public float moveSpeed = 4500;
+    public float maxSpeed = 20;
+    public float sprintMultiplier = 2.0f;
 
-    //Rotation and look
+    private Rigidbody rb;
+    private Vector3 playerScale;
     private float xRotation;
     private float sensitivity = 50f;
     private float sensMultiplier = 1f;
-    
-    //Movement
-    public float moveSpeed = 4500;
-    public float maxSpeed = 20;
+    private bool sprint;
 
-    //Crouch & Slide
-    private Vector3 playerScale;
 
-    
-    //Input
-    float x, y, z;
-    bool ascend, descend;
-    
-    //Sliding
-    private Vector3 normalVector = Vector3.up;
-    private Vector3 wallNormalVector;
+    private float x, y;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -59,35 +47,31 @@ public class DiverMovement : MonoBehaviour {
     private void MyInput() {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        ascend = Input.GetKey(KeyCode.Space);
-        descend = Input.GetKey(KeyCode.LeftShift);
-
+        sprint = Input.GetKey(KeyCode.LeftShift);
     }
 
     private void Movement() {
         //Find actual velocity relative to where player is looking
         Vector2 mag = FindVelRelativeToLook();
-        float xMag = mag.x, yMag = mag.y, zMag = rb.velocity.y;
+        float xMag = mag.x, yMag = mag.y;
 
         //Set max speed
-        float maxSpeed = this.maxSpeed;
-        
-        if (ascend) z = 1;
-        if (descend) z = -1;
+        float currentMaxSpeed = maxSpeed;
+        float currentMoveSpeed = moveSpeed;
+        if (sprint) {
+            currentMaxSpeed *= sprintMultiplier;
+            currentMoveSpeed *= sprintMultiplier;
+        }
 
-        //If speed is larger than maxspeed, cancel out the input so you don't go over max speed
-        if (x > 0 && xMag > maxSpeed) x = 0;
-        if (x < 0 && xMag < -maxSpeed) x = 0;
-        if (y > 0 && yMag > maxSpeed) y = 0;
-        if (y < 0 && yMag < -maxSpeed) y = 0;
-        if (z > 0 && zMag > maxSpeed) z = 0;
-        if (z < 0 && zMag < -maxSpeed) z = 0;
-        if (!ascend && !descend) z = zMag * -0.1f;
+        //If speed is larger than currentMaxSpeed, cancel out the input so you don't go over max speed
+        if (x > 0 && xMag > currentMaxSpeed) x = 0;
+        if (x < 0 && xMag < -currentMaxSpeed) x = 0;
+        if (y > 0 && yMag > currentMaxSpeed) y = 0;
+        if (y < 0 && yMag < -currentMaxSpeed) y = 0;
 
         //Apply forces to move player
-        rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime);
-        rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime);
-        rb.AddForce(orientation.transform.up * z * moveSpeed * Time.deltaTime);
+        rb.AddForce(orientation.transform.forward * y * currentMoveSpeed * Time.deltaTime);
+        rb.AddForce(orientation.transform.right * x * currentMoveSpeed * Time.deltaTime);
     }
 
     
@@ -106,7 +90,7 @@ public class DiverMovement : MonoBehaviour {
 
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        orientation.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
     }
 
     /// <summary>
