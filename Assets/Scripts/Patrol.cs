@@ -16,11 +16,7 @@ public class Patrol : MonoBehaviour
 
     [Header ("Collisions")]
     public LayerMask obstacleMask;
-    public float boundsRadius;
-    public float avoidCollisionWeight;
     public float collisionAvoidDst;
-    private Vector3 collisionAvoidanceVector;
-    private bool isHeadingForCollision;
 
     void Start() {
         target = GetNextTarget();
@@ -35,18 +31,19 @@ public class Patrol : MonoBehaviour
             target = GetNextTarget();
         }
 
-        isHeadingForCollision = IsHeadingForCollision();
-        if (isHeadingForCollision) {
-            Vector3 collisionAvoidDir = ObstacleRays ();
-            collisionAvoidanceVector = collisionAvoidDir * speed * avoidCollisionWeight;
-        } else {
-            collisionAvoidanceVector = Vector3.zero;
+        if (CollisionInDirection(target - transform.position)) {
+            for (int i = 0; i < 5; i++) {
+                target = GetNextTarget();
+                if (!CollisionInDirection(target - transform.position)) {
+                    break;
+                }
+            }
         }
     }
 
     void FixedUpdate() {
-        MoveTowardsTarget();
         FishMovementUtils.RotateUpright(rb, transform);
+        MoveTowardsTarget();
     }
 
     bool HaveReachedDestination(Vector3 destination) {
@@ -70,33 +67,17 @@ public class Patrol : MonoBehaviour
 
     void MoveTowardsTarget() {
         Vector3 targetDirection = target - transform.position;
-        Vector3 sumVector = targetDirection + collisionAvoidanceVector;
-        FishMovementUtils.MoveTowardsTarget(rb, sumVector, speed);
+        FishMovementUtils.MoveTowardsTarget(rb, targetDirection, speed);
         
         // face midway between current velocity vector and target: like anticipating a turn
-        Vector3 facingDirection = (rb.velocity + sumVector) / 2;
+        Vector3 facingDirection = (rb.velocity + targetDirection) / 2;
         FishMovementUtils.TurnToFace(rb, transform, facingDirection);
     }
 
-    bool IsHeadingForCollision () {
-        RaycastHit hit;
-        if (Physics.SphereCast (transform.position, boundsRadius, transform.forward, out hit, collisionAvoidDst, obstacleMask)) {
+    bool CollisionInDirection (Vector3 direction) {
+        if (Physics.Raycast (transform.position, direction, collisionAvoidDst, obstacleMask)) {
             return true;
         } else { }
         return false;
-    }
-
-    Vector3 ObstacleRays () {
-        Vector3[] rayDirections = BoidHelper.directions;
-
-        for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = transform.TransformDirection (rayDirections[i]);
-            Ray ray = new Ray (transform.position, dir);
-            if (!Physics.SphereCast (ray, boundsRadius, collisionAvoidDst, obstacleMask)) {
-                return dir;
-            }
-        }
-
-        return transform.forward;
     }
 }
