@@ -3,15 +3,15 @@
 using System;
 using UnityEngine;
 
-public class DiverMovement : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
     public Transform playerCam;
     public Transform orientation;
+    public Rigidbody rb;
     public float moveSpeed = 4500;
     public float maxSpeed = 20;
     public float sprintMultiplier = 2.0f;
 
-    private Rigidbody rb;
     private Vector3 playerScale;
     private float xRotation;
     private float sensitivity = 50f;
@@ -22,10 +22,6 @@ public class DiverMovement : MonoBehaviour {
     // Input
     float x, y, z;
     bool ascend, descend;
-
-    void Awake() {
-        rb = GetComponent<Rigidbody>();
-    }
     
     void Start() {
         playerScale =  transform.localScale;
