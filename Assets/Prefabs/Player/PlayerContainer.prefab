@@ -322,6 +322,19 @@ MonoBehaviour:
   moveSpeed: 4500
   maxSpeed: 20
   sprintMultiplier: 2
+--- !u!65 &8393378029866042362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988036762710309435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025, y: 0.035, z: 0.016}
+  m_Center: {x: 0, y: -0.005, z: -0.012}
 --- !u!1001 &82629194093075145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,6 +428,12 @@ GameObject:
 --- !u!4 &4926720421923336659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: de7611bf664504b339821c4995a31694,
+    type: 3}
+  m_PrefabInstance: {fileID: 82629194093075145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8988036762710309435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -171588681553846030, guid: de7611bf664504b339821c4995a31694,
     type: 3}
   m_PrefabInstance: {fileID: 82629194093075145}
   m_PrefabAsset: {fileID: 0}
