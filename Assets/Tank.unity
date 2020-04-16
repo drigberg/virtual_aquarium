@@ -6698,6 +6698,11 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5881519285444148291, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 1280907570}
     - target: {fileID: 6104608293100581580, guid: f08608913fe854327a100db504c3f55e,
         type: 3}
       propertyPath: m_Name
@@ -6761,6 +6766,26 @@ PrefabInstance:
     - target: {fileID: 7778691095049224541, guid: f08608913fe854327a100db504c3f55e,
         type: 3}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778691095049224541, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778691095049224541, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778691095049224541, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778691095049224541, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8066503887835267046, guid: f08608913fe854327a100db504c3f55e,
@@ -7649,6 +7674,12 @@ Transform:
   m_Father: {fileID: 682508454}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1280907570 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4926720421923336659, guid: f08608913fe854327a100db504c3f55e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1099306767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1294284974
 PrefabInstance:
   m_ObjectHideFlags: 0

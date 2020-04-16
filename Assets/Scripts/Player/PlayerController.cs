@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         MyInput();
         Look();
     }
