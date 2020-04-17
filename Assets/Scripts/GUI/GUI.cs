@@ -23,9 +23,6 @@ public class GUI : MonoBehaviour
     
     void OnGUI() {
         Cursor.lockState = CursorLockMode.Locked;
-        if (GUILayout.Button("Instructions")) {
-            Debug.Log("Instructions!");
-        }
     }
 
     void OnApplicationFocus(bool hasFocus) {

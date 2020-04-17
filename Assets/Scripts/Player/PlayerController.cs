@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public Transform playerCam;
     public Transform orientation;
     public Rigidbody rb;
+    public GUI gui;
     public float moveSpeed = 4500;
     public float maxSpeed = 20;
     public float sprintMultiplier = 2.0f;
@@ -38,7 +39,9 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         MyInput();
-        Look();
+        if (!gui.paused) {
+            Look();
+        }
     }
 
     /// <summary>

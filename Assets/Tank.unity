@@ -6997,6 +6997,11 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1280907570}
+    - target: {fileID: 5881519285444148291, guid: f08608913fe854327a100db504c3f55e,
+        type: 3}
+      propertyPath: gui
+      value: 
+      objectReference: {fileID: 1582693919}
     - target: {fileID: 6104608293100581580, guid: f08608913fe854327a100db504c3f55e,
         type: 3}
       propertyPath: m_Name
