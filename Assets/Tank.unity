@@ -9284,6 +9284,9 @@ MonoBehaviour:
 
     Toggle pause:    P
 
+    free
+    cursor:     ESC
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -9353,12 +9356,12 @@ MonoBehaviour:
   m_margin: {x: -432.00977, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1934629065}
-    characterCount: 134
+    characterCount: 155
     spriteCount: 0
-    spaceCount: 64
-    wordCount: 14
+    spaceCount: 71
+    wordCount: 17
     linkCount: 0
-    lineCount: 6
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
