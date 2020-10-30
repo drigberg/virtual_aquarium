@@ -17,7 +17,7 @@ public class SchoolSharedSettings : ScriptableObject {
     public float cohesionWeight;
     public float separateWeight;
     public float targetWeight;
-    
+
     [Header ("Collisions")]
     public LayerMask obstacleMask;
     public float boundsRadius;

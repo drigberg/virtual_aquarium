@@ -824,6 +824,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de21e3765ae44019b70a2e8c47d0c3e, type: 3}
+--- !u!1001 &204782516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890908495}
+    m_Modifications:
+    - target: {fileID: 5757759347238472045, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_Name
+      value: Lesser Philip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d20129157579640d086b3192075ad46c, type: 3}
 --- !u!1 &270563393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1684,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637893656}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &652488825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652488826}
+  - component: {fileID: 652488827}
+  m_Layer: 0
+  m_Name: Lesser Autonomous School #1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652488826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652488825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.1, y: 0, z: 3.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890908495}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652488827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652488825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816651d0fa057471581475b1cc798120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 8874397307205138849, guid: 2b446a7fb937a4aac9fed36333a9fb6d,
+    type: 3}
+  numFish: 5
+  fishSharedSettings: {fileID: 11400000, guid: cc8a35834571c4f85bc31e6372e8e5ee, type: 2}
+  target: {fileID: 1267123948}
+  allFish: []
+  spawnCenter: {fileID: 652488826}
+  schoolStartRadius: 2
+  minDistanceBetweenSpawnPoints: 0.2
 --- !u!4 &660123875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 439831544818081117, guid: 7de21e3765ae44019b70a2e8c47d0c3e,
@@ -1645,12 +1766,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672247583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.3, z: 84.3}
+  m_LocalPosition: {x: 18, y: 9.3, z: 92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 558256671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &699861532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5757759347238472045, guid: d20129157579640d086b3192075ad46c,
+    type: 3}
+  m_PrefabInstance: {fileID: 204782516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &699861533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
+    type: 3}
+  m_PrefabInstance: {fileID: 204782516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &699861534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699861532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a894b64b344d44df96a818c8e8312f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minXYZ: {fileID: 1601412445}
+  maxXYZ: {fileID: 1656095559}
+  speed: 300
+  targetRadius: 5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  collisionAvoidDst: 3
 --- !u!1001 &703406982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2357,6 +2510,11 @@ Transform:
   - {fileID: 2058820444}
   - {fileID: 2097443194}
   - {fileID: 1138841174}
+  - {fileID: 1681305817}
+  - {fileID: 1100510890}
+  - {fileID: 652488826}
+  - {fileID: 939422782}
+  - {fileID: 699861533}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2455,6 +2613,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930106637}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &939422781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939422782}
+  - component: {fileID: 939422783}
+  m_Layer: 0
+  m_Name: Lesser Targeted School #1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939422782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939422781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890908495}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939422783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939422781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816651d0fa057471581475b1cc798120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 8874397307205138849, guid: 2b446a7fb937a4aac9fed36333a9fb6d,
+    type: 3}
+  numFish: 5
+  fishSharedSettings: {fileID: 11400000, guid: 1ee1cac5691fb49e78b1e31aa357ea48, type: 2}
+  target: {fileID: 699861533}
+  allFish: []
+  spawnCenter: {fileID: 699861533}
+  schoolStartRadius: 5
+  minDistanceBetweenSpawnPoints: 1
 --- !u!1 &980522357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,7 +2782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002677149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.1, y: 32.6, z: 20.7}
+  m_LocalPosition: {x: 146, y: 32.6, z: 109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 61848393}
@@ -2647,6 +2857,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd4cb210fbbc4510877ffaaad9d616f, type: 3}
+--- !u!1 &1100510889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100510890}
+  - component: {fileID: 1100510891}
+  m_Layer: 0
+  m_Name: Tiny Autonomous School #2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1100510890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100510889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 125.9, y: 0, z: -166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890908495}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1100510891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100510889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816651d0fa057471581475b1cc798120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: -6633106148221124563, guid: c66480da88f0b405ab0652a0ff7e40c6,
+    type: 3}
+  numFish: 20
+  fishSharedSettings: {fileID: 11400000, guid: 4af5b98ce4a0f4230a4e126ac3fbbee3, type: 2}
+  target: {fileID: 1267123948}
+  allFish: []
+  spawnCenter: {fileID: 1100510890}
+  schoolStartRadius: 2
+  minDistanceBetweenSpawnPoints: 1
 --- !u!1 &1138841173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2938,7 @@ Transform:
   m_Children:
   - {fileID: 61848393}
   - {fileID: 558256671}
+  - {fileID: 2125990472}
   m_Father: {fileID: 890908495}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3442,6 +3705,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571147953}
   m_CullTransparentMesh: 0
+--- !u!1 &1601412444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601412445}
+  m_Layer: 0
+  m_Name: LPMin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601412445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601412444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -97, y: 0, z: -153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2125990472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606550762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,6 +3955,88 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640640275}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1656095558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656095559}
+  m_Layer: 0
+  m_Name: LPMax
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656095559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656095558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2125990472}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681305816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681305817}
+  - component: {fileID: 1681305818}
+  m_Layer: 0
+  m_Name: Tiny Autonomous School #1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681305817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681305816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.6, y: 0, z: 2.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890908495}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681305818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681305816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816651d0fa057471581475b1cc798120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: -6633106148221124563, guid: c66480da88f0b405ab0652a0ff7e40c6,
+    type: 3}
+  numFish: 20
+  fishSharedSettings: {fileID: 11400000, guid: 4af5b98ce4a0f4230a4e126ac3fbbee3, type: 2}
+  target: {fileID: 1267123948}
+  allFish: []
+  spawnCenter: {fileID: 1681305817}
+  schoolStartRadius: 2
+  minDistanceBetweenSpawnPoints: 1
 --- !u!4 &1726825799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6079959056639577483, guid: d782bdfa2fb5640b5be8e9c23905d00d,
@@ -3991,7 +4366,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 30
+  far clip plane: 50
   field of view: 75
   orthographic: 0
   orthographic size: 5
@@ -4411,6 +4786,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887632653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125990471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125990472}
+  m_Layer: 0
+  m_Name: Lesser Philip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2125990472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125990471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1601412445}
+  - {fileID: 1656095559}
+  m_Father: {fileID: 1138841174}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141773704
 GameObject:
   m_ObjectHideFlags: 0

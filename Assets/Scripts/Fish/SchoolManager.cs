@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SchoolManager : MonoBehaviour
 {
-    const int threadGroupSize = 1024;
-    public ComputeShader compute;
-
     [Header ("General")]
     public SchoolingFish fishPrefab;
     public int numFish = 5;
