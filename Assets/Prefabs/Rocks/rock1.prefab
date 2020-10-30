@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &7763788526720293067
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830834021077429856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.014902173, y: 0.015661761, z: 0.017254893}
+  m_Center: {x: 0.0000707272, y: -0.000783263, z: -0.00011590542}
 --- !u!1001 &697074804075689833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +83,13 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: d06e2d36eb60444e1a7e2f2a5404f0f6,
         type: 3}
       propertyPath: m_Name
-      value: rock1_fbx
+      value: rock1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06e2d36eb60444e1a7e2f2a5404f0f6, type: 3}
+--- !u!1 &8830834021077429856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d06e2d36eb60444e1a7e2f2a5404f0f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 697074804075689833}
+  m_PrefabAsset: {fileID: 0}
