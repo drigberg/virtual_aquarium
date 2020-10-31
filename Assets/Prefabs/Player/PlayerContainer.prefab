@@ -319,6 +319,7 @@ MonoBehaviour:
   playerCam: {fileID: 5827327911529579018}
   orientation: {fileID: 3085015369948761765}
   rb: {fileID: 7778691095049224541}
+  gui: {fileID: 0}
   moveSpeed: 4500
   maxSpeed: 20
   sprintMultiplier: 2

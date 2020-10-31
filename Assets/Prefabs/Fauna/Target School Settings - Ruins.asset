@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb0a2fcf588a43289339141b6ace286, type: 3}
-  m_Name: Targeted School Settings
+  m_Name: Target School Settings - Ruins
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 300
@@ -23,7 +23,7 @@ MonoBehaviour:
   targetWeight: 0.5
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 0
   boundsRadius: 0.1
   avoidCollisionWeight: 1
   collisionAvoidDst: 5
