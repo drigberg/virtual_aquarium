@@ -235,7 +235,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209886682}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &41981405
 PrefabInstance:
@@ -403,7 +403,7 @@ PrefabInstance:
     - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8772152557708737406, guid: d20129157579640d086b3192075ad46c,
         type: 3}
@@ -605,9 +605,9 @@ Transform:
   m_LocalPosition: {x: -33, y: 9.1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 105685237}
   - {fileID: 362804154}
   - {fileID: 41492731}
-  - {fileID: 105685237}
   m_Father: {fileID: 1542544540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5777,7 +5777,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310388153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: 2, z: 0}
+  m_LocalPosition: {x: 17.85, y: -0.6, z: -2.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 97818258}
@@ -5881,7 +5881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 209886682}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &362804155
 MonoBehaviour:
@@ -6540,8 +6540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a38b9706b8354448ba084347d75f2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: -6735897891158568915, guid: 324ae27262a9640e383f90322ed73c92,
-    type: 3}
+  fishPrefabs:
+  - {fileID: -6735897891158568915, guid: 324ae27262a9640e383f90322ed73c92, type: 3}
+  - {fileID: 8726525079863905431, guid: 4313ac7dfca34446096cd8b1df948069, type: 3}
   minXYZ: {fileID: 833955187}
   maxXYZ: {fileID: 687950815}
   numFish: 5
@@ -7754,6 +7755,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 994990243}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1078897224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078897225}
+  m_Layer: 0
+  m_Name: Clarence School - Alcove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078897225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078897224}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1090174647}
+  - {fileID: 1383726674}
+  m_Father: {fileID: 1880537139}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1090174646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090174647}
+  - component: {fileID: 1090174648}
+  m_Layer: 0
+  m_Name: Fish Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1090174647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090174646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1078897225}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090174648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090174646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a38b9706b8354448ba084347d75f2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefabs:
+  - {fileID: 9043063133799032505, guid: 8b38d18670a8845f986771f0e1337cc6, type: 3}
+  - {fileID: 2057863554524506556, guid: edf683265aa544507baac7c11613e73b, type: 3}
+  minXYZ: {fileID: 800385637}
+  maxXYZ: {fileID: 1124600232}
+  numFish: 20
+  spawnCenter: {fileID: 1383726674}
+  schoolStartRadius: 5
+  minDistanceBetweenSpawnPoints: 1
 --- !u!1001 &1099306767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9045,7 +9130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279973624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.032839775, y: -3.713647, z: 0.5558033}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1587843833}
@@ -9278,6 +9363,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9cbda9f2d14c47b98198b04c172fc31, type: 3}
+--- !u!1 &1383726673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383726674}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1383726674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383726673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.76, y: -14.92, z: 45.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1078897225}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1399502033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9660,13 +9775,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483644839}
-  m_LocalRotation: {x: 0.4914015, y: -0.60836065, z: 0.33998013, w: 0.52233654}
+  m_LocalRotation: {x: 0.6455668, y: -0.4467755, z: 0.5348652, w: 0.31233692}
   m_LocalPosition: {x: 37.3, y: 34.3, z: 79.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1229243561}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 67.97401, y: -126.51601, z: -40.334003}
+  m_LocalEulerAnglesHint: {x: 61.787003, y: -240.509, z: -149.106}
 --- !u!1 &1495368613
 GameObject:
   m_ObjectHideFlags: 0
@@ -10381,8 +10496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a38b9706b8354448ba084347d75f2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: -3221402852490323496, guid: c66480da88f0b405ab0652a0ff7e40c6,
-    type: 3}
+  fishPrefabs:
+  - {fileID: -3221402852490323496, guid: c66480da88f0b405ab0652a0ff7e40c6, type: 3}
+  - {fileID: 5438233674234848177, guid: f55ce1f7dd53a4811b3c4ec8e88f408c, type: 3}
   minXYZ: {fileID: 833955187}
   maxXYZ: {fileID: 687950815}
   numFish: 20
@@ -10997,6 +11113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946387400}
+  - {fileID: 1078897225}
   m_Father: {fileID: 1020915949}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11188,7 +11305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909517411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: 2, z: 0}
+  m_LocalPosition: {x: 17.58, y: -1.89, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1279973625}
@@ -11296,7 +11413,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 102
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
