@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatrollingFishGenerator : MonoBehaviour
 {
     [Header ("General")]
-    public Patrol fishPrefab;
+    public Patrol[] fishPrefabs;
     public Transform minXYZ;
     public Transform maxXYZ;
 
@@ -26,7 +26,8 @@ public class PatrollingFishGenerator : MonoBehaviour
         allFish = new Patrol[numFish];
         for (int i = 0; i < numFish; i++) {
             Vector3 pos = validStartPosition();
-            Patrol fish = Instantiate(fishPrefab);
+            Patrol prefab = fishPrefabs[Random.Range(0, fishPrefabs.Length)];
+            Patrol fish = Instantiate(prefab);
             fish.transform.position = pos;
             fish.transform.forward = Random.insideUnitSphere;
             fish.minXYZ = minXYZ;
