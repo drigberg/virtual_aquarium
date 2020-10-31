@@ -31,7 +31,6 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 - squid
 - sea turtle
 - glowing fish, coral, and algae in the dark
-- patrolling mermaid
 
 ### Structures
 
