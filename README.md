@@ -10,20 +10,16 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 
 ### Gameplay
 
-- first-person view
-- walking on the bottom
 - ocean guardians who can speak
 
 ### Fauna behavior
 
-- all fish avoid player
-- small fish that patrol only in coral reefs
+- fish choose new target if they get stuck
 - patrolling fish may rest at targets, with paused animation at rest pose
 - curved paths to targets, or curves that connect multiple targets!
 
 ### Flora and Fauna
 
-- more colors of each model
 - clams that close when you get close
 - barracuda
 - blue whale
@@ -32,6 +28,8 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 - squid
 - sea turtle
 - glowing fish, coral, and algae in the dark
+- tube coral
+- fan coral
 
 ### Structures
 

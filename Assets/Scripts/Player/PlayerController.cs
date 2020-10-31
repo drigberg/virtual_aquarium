@@ -11,33 +11,29 @@ public class PlayerController : MonoBehaviour {
     public GUI gui;
     public float moveSpeed = 4500;
     public float maxSpeed = 20;
-    public float sprintMultiplier = 2.0f;
 
     private Vector3 playerScale;
     private float xRotation;
-    private float sensitivity = 50f;
+    private float sensitivity = 100;
     private float sensMultiplier = 1f;
-    private bool sprint;
 
 
     // Input
     float x, y, z;
-    bool ascend, descend;
-    
+    bool jump;
+
     void Start() {
         playerScale =  transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    
+
     private void FixedUpdate() {
         Movement();
     }
 
     private void Update() {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
         MyInput();
         if (!gui.paused) {
             Look();
@@ -50,57 +46,53 @@ public class PlayerController : MonoBehaviour {
     private void MyInput() {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        ascend = Input.GetKey(KeyCode.E);
-        descend = Input.GetKey(KeyCode.Q);
-        sprint = Input.GetKey(KeyCode.Space);
+        jump = Input.GetKey(KeyCode.Space);
     }
 
     private void Movement() {
-        //Find actual velocity relative to where player is looking
+        // Save some effort if no buttons are pressed
+        if (x == 0 && y == 0 && !jump) {
+            return;
+        }
+
         Vector2 mag = FindVelRelativeToLook();
         float xMag = mag.x, yMag = mag.y, zMag = rb.velocity.y;
 
-        //Set max speed
-        float currentMaxSpeed = maxSpeed;
-        float currentMoveSpeed = moveSpeed;
-        if (sprint) {
-            currentMaxSpeed *= sprintMultiplier;
-            currentMoveSpeed *= sprintMultiplier;
+        if (jump) {
+            z = 2;
+        } else {
+            z = 0;
         }
-        
-        if (ascend) z = 1;
-        if (descend) z = -1;
 
-        //If speed is larger than maxspeed, cancel out the input so you don't go over max speed
-        if (x > 0 && xMag > currentMaxSpeed) x = 0;
-        if (x < 0 && xMag < -currentMaxSpeed) x = 0;
-        if (y > 0 && yMag > currentMaxSpeed) y = 0;
-        if (y < 0 && yMag < -currentMaxSpeed) y = 0;
-        if (z > 0 && zMag > currentMaxSpeed) z = 0;
-        if (z < 0 && zMag < -currentMaxSpeed) z = 0;
-        if (!ascend && !descend) z = zMag * -0.1f;
+        // If speed is larger than maxspeed, cancel out the input so you don't go over max speed
+        if (x > 0 && xMag > maxSpeed) x = 0;
+        if (x < 0 && xMag < -maxSpeed) x = 0;
+        if (y > 0 && yMag > maxSpeed) y = 0;
+        if (y < 0 && yMag < -maxSpeed) y = 0;
+        if (z > 0 && zMag > maxSpeed) z = 0;
+        if (z < 0 && zMag < -maxSpeed) z = 0;
 
-        //Apply forces to move player
-        rb.AddForce(orientation.transform.forward * y * currentMoveSpeed * Time.deltaTime);
-        rb.AddForce(orientation.transform.right * x * currentMoveSpeed * Time.deltaTime);
-        rb.AddForce(orientation.transform.up * z * currentMoveSpeed * Time.deltaTime);
+        // Apply forces to move player
+        rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime);
+        rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime);
+        rb.AddForce(orientation.transform.up * z * moveSpeed * Time.deltaTime);
     }
 
-    
+
     private float desiredX;
     private void Look() {
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
-        //Find current look rotation
+        // Find current look rotation
         Vector3 rot = playerCam.transform.localRotation.eulerAngles;
         desiredX = rot.y + mouseX;
-        
-        //Rotate, and also make sure we dont over- or under-rotate.
+
+        // Rotate, and also make sure we dont over- or under-rotate.
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //Perform the rotations
+        // Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
         orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
     }
@@ -120,7 +112,7 @@ public class PlayerController : MonoBehaviour {
         float magnitude = rb.velocity.magnitude;
         float yMag = magnitude * Mathf.Cos(u * Mathf.Deg2Rad);
         float xMag = magnitude * Mathf.Cos(v * Mathf.Deg2Rad);
-        
+
         return new Vector2(xMag, yMag);
     }
 }
