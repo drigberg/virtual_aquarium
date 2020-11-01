@@ -44,7 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minXYZ: {fileID: 0}
   maxXYZ: {fileID: 0}
-  speed: 300
+  speed: 200
   targetRadius: 3
   obstacleMask:
     serializedVersion: 2

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &2555183299663327049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169068653155909106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3298800115395149385, guid: 2c996d38b71e640f291a10a1fda58117, type: 3}
 --- !u!54 &1642796365639496588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30,7 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minXYZ: {fileID: 0}
   maxXYZ: {fileID: 0}
-  speed: 300
+  speed: 125
   targetRadius: 3
   obstacleMask:
     serializedVersion: 2
@@ -56,20 +70,6 @@ MonoBehaviour:
   - {fileID: 6707107870720103182}
   frequency: 3
   maxRotateDegreesPerBone: 3
---- !u!64 &2555183299663327049
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169068653155909106}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3298800115395149385, guid: 2c996d38b71e640f291a10a1fda58117, type: 3}
 --- !u!1001 &3988592385222852308
 PrefabInstance:
   m_ObjectHideFlags: 0

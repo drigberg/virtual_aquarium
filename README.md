@@ -11,6 +11,7 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Gameplay
 
 - ocean guardians who can speak
+- fix the ice movemement thing
 
 ### Fauna behavior
 
@@ -34,9 +35,6 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Structures
 
 - big platforms, like the islands in Aer
-- dark cave
-- temple ruins
-- dark chasm
 
 ## Sources
 
