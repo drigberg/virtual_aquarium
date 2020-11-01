@@ -12,6 +12,7 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 
 - ocean guardians who can speak
 - fix the ice movemement thing
+- music
 
 ### Fauna behavior
 
@@ -28,7 +29,7 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 - shark
 - squid
 - sea turtle
-- glowing fish, coral, and algae in the dark
+- see-through fish with glowing skeletons
 - tube coral
 - fan coral
 
