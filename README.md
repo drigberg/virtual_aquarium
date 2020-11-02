@@ -23,8 +23,9 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Flora and Fauna
 
 - clams that close when you get close
-- barracuda
+- trumpetfish
 - blue whale
+- penguins
 - jellyfish
 - shark
 - squid
