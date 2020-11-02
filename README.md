@@ -32,9 +32,11 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 - see-through fish with glowing skeletons
 - tube coral
 - fan coral
+- kelp
 
 ### Structures
 
+- icebergs
 - big platforms, like the islands in Aer
 
 ## Sources
