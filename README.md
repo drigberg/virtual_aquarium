@@ -37,7 +37,6 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Structures
 
 - icebergs
-- big platforms, like the islands in Aer
 
 ## Sources
 
