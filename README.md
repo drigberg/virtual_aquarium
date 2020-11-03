@@ -20,13 +20,18 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 - patrolling fish may rest at targets, with paused animation at rest pose
 - curved paths to targets, or curves that connect multiple targets!
 
+### NPCs and Lore
+
+- coral guardians
+
 ### Flora and Fauna
 
+- flora and fauna that only live in the floating islands
 - clams that close when you get close
+- eels that go back into their holes when you get close
 - trumpetfish
 - blue whale
 - penguins
-- jellyfish
 - shark
 - squid
 - sea turtle
@@ -38,6 +43,7 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Structures
 
 - icebergs
+- bridges between islands
 
 ## Sources
 
