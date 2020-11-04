@@ -11,8 +11,8 @@ See it live at https://danielrigberg.com/virtual_aquarium/index.html!
 ### Gameplay
 
 - ocean guardians who can speak
-- fix the ice movemement thing
 - music
+- disable jumping on steep slopes
 
 ### Fauna behavior
 
